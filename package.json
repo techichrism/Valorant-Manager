@@ -1,0 +1,99 @@
+{
+  "name": "nebula",
+  "version": "3.4.4",
+  "description": "Manage multiple Valorant accounts easily.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build:renderer": "cd renderer && npm run build",
+    "build": "npm run build:renderer && electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "valorant",
+    "account",
+    "manager",
+    "electron"
+  ],
+  "author": "v1niii",
+  "license": "MIT",
+  "dependencies": {
+    "randomhexx": "^3.1.0",
+    "electron-store": "^8.1.0",
+    "electron-updater": "^6.8.3",
+    "node-fetch": "^2.6.7",
+    "yaml": "^2.3.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^28.3.3",
+    "electron-builder": "^24.6.3"
+  },
+  "build": {
+    "appId": "com.v1niii.nebula",
+    "productName": "Nebula",
+    "copyright": "Copyright © 2026 v1niii",
+    "compression": "maximum",
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "v1niii",
+        "repo": "Nebula"
+      }
+    ],
+    "files": [
+      "main.js",
+      "preload.js",
+      "auth-service.js",
+      "auth-launch-service.js",
+      "game-service.js",
+      "deceive-manager.js",
+      "renderer/dist/**/*",
+      "assets/**/*",
+      "node_modules/**/*",
+      "!**/{.DS_Store,.gitignore,.github,.vscode,.idea,.editorconfig}",
+      "!**/{*.md,*.markdown,README*,CHANGELOG*,LICENSE*,readme*,license*}",
+      "!**/{test,tests,__tests__,spec,specs,example,examples}/**",
+      "!**/node_modules/**/*.d.ts",
+      "!**/node_modules/**/*.map"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "deleteAppDataOnUninstall": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "Nebula",
+      "uninstallDisplayName": "${productName} ${version}",
+      "runAfterFinish": true,
+      "installerIcon": "assets/icon.ico",
+      "uninstallerIcon": "assets/icon.ico",
+      "installerHeaderIcon": "assets/icon.ico",
+      "include": "build/installer.nsh",
+      "menuCategory": false
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.utilities"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets",
+      "category": "Game"
+    }
+  }
+}
