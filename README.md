@@ -5,8 +5,6 @@
 
 A fast, secure Valorant account manager with optional live match info, store tracking, and player stats. Switch between accounts seamlessly.
 
-> **Disclaimer:** This project interacts with unofficial Riot Games APIs and is subject to change. Use at your own risk. Not endorsed by Riot Games. Live API features are opt-in and disabled by default.
-
 ## Features
 
 ### Account Manager
