@@ -1,0 +1,51 @@
+# Dependencies
+/node_modules
+/renderer/node_modules
+
+# Renderer build output
+/renderer/dist
+
+# Build artifacts
+/dist
+/out
+
+# Logs
+*.log
+logs
+*.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Electron specific
+.electron/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE specific
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+
+# Claude Code local session state
+.claude/
+
+# Optional User Files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.localtmp/
